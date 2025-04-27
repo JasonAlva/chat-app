@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ConvexClientProviders from "@/providers/ConvexClientProviders";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import {
   ClerkProvider,
   SignedIn,
@@ -32,7 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ConvexClientProviders>{children}</ConvexClientProviders>
+        <ConvexClientProviders>
+          <TooltipProvider>{children}</TooltipProvider>
+        </ConvexClientProviders>
       </body>
     </html>
   );
