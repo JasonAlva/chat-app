@@ -11,15 +11,14 @@ import useNavigation from "@/hooks/useNavigation";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
-
 const DesktopNav = () => {
   const paths = useNavigation();
   return (
-    <Card className="hidden lg:flex lg:flex-col lg:px-4 lg:h-full lg:w-16 lg:justify-between lg:items-center ">
+    <Card className="fixed bottom-4 p-4">
       <nav>
         <ul className="flex flex-col items-center gap-4">
           {paths.map((path, id) => (
-            <li key={id}>
+            <li key={id} className="relative">
               <Link href={path.href}>
                 <Tooltip>
                   <TooltipTrigger>

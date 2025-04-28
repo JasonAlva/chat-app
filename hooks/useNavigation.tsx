@@ -9,13 +9,13 @@ const useNavigation = () => {
       {
         name: "Conversations",
         href: "/conversations",
-        icon: MessageSquare,
+        icon: <MessageSquare />,
         active: pathname.startsWith("/conversations"),
       },
       {
         name: "Friends",
         href: "/friends",
-        icon: User,
+        icon: <User />,
         active: pathname.startsWith("/friends"),
       },
     ],
