@@ -11,12 +11,12 @@ import useNavigation from "@/hooks/useNavigation";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
-const DesktopNav = () => {
+const MobileNav = () => {
   const paths = useNavigation();
   return (
-    <Card className="fixed bottom-4 p-4">
-      <nav>
-        <ul className="flex flex-col items-center gap-4">
+    <Card className="fixed bottom-4 w-[calc(100vw-32px)] flex items-center h-16 p-2 justify-center lg:hidden">
+      <nav className="w-full">
+        <ul className="flex justify-evenly items-center">
           {paths.map((path, id) => (
             <li key={id} className="relative">
               <Link href={path.href}>
@@ -36,13 +36,13 @@ const DesktopNav = () => {
               </Link>
             </li>
           ))}
+          <li>
+            <UserButton />
+          </li>
         </ul>
       </nav>
-      <div className="flex flex-col items-center gap-4">
-        <UserButton />
-      </div>
     </Card>
   );
 };
 
-export default DesktopNav;
+export default MobileNav;
