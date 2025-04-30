@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ModeToggle } from "@/components/ui/theme/theme-toggle";
 import {
   Tooltip,
   TooltipContent,
@@ -10,7 +11,6 @@ import {
 import useNavigation from "@/hooks/useNavigation";
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-
 
 const DesktopNav = () => {
   const paths = useNavigation();
@@ -39,7 +39,9 @@ const DesktopNav = () => {
           ))}
         </ul>
       </nav>
+
       <div className="flex flex-col items-center gap-4">
+        <ModeToggle />
         <UserButton />
       </div>
     </Card>

@@ -9,6 +9,7 @@ import {
   SignedOut,
   SignInButton,
 } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/ui/theme/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +34,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ConvexClientProviders>
-          <TooltipProvider>{children}</TooltipProvider>
-        </ConvexClientProviders>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ConvexClientProviders>
+            <TooltipProvider>{children}</TooltipProvider>
+          </ConvexClientProviders>
+        </ThemeProvider>
       </body>
     </html>
   );
